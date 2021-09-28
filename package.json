@@ -1,0 +1,15 @@
+{
+  "name": "test-post-build",
+  "version": "1.0.0",
+  "description": "test post build",
+  "main": "index.js",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "postinstall": "node index.js 'post install'",
+    "postbuild": "node index.js 'post build'"
+  },
+  "files": [
+    "index.js"
+  ]
+}
