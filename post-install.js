@@ -31,7 +31,7 @@ function produceContent(json) {
     return [...array, `  ${key.toUpperCase()} = '${value}',`];
   }, ['export enum DeploymentConfigs {']), '}', '', 'declare const config: DeploymentConfigs;', 'export default config;', ''];
 
-  writeFileSync('lib.d.ts', deployment_config_array.join('\n'), { encoding: 'utf-8' });
+  writeFileSync('main.d.ts', deployment_config_array.join('\n'), { encoding: 'utf-8' });
   writeFileSync('deployment.json', JSON.stringify(config, null, 2), { encoding: 'utf-8' });
 }
 
