@@ -1,4 +1,4 @@
 .npmrc
 node_modules
 deployment.json
-lib.d.ts
+main.d.ts
