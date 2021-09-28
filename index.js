@@ -1,1 +1,7 @@
-console.log(process.argv)
+(async () => {
+  await new Promise((resolve) =>
+    setTimeout(() => {
+      console.log(process.argv);
+      resolve();
+    }, 5500))
+})();
