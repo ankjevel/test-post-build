@@ -1,8 +1,7 @@
 {
   "name": "test-post-build",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "test post build",
-  "bin": "post-install.js",
   "main": "main.js",
   "types": "main.d.ts",
   "license": "MIT",

@@ -26,12 +26,18 @@ async function getConfig() {
 
 function produceContent(json) {
   const config = {};
-  const deployment_config_array = [...Object.entries(json).reduce((array, [key, value]) => {
-    config[key.toUpperCase()] = value;
-    return [...array, `  ${key.toUpperCase()} = '${value}',`];
-  }, ['export enum DeploymentConfigs {']), '}', '', 'declare const config: DeploymentConfigs;', 'export default config;', ''];
+  let deployment_config = 'export enum DeploymentConfig {\n';
 
-  writeFileSync('main.d.ts', deployment_config_array.join('\n'), { encoding: 'utf-8' });
+  Object.entries(json).forEach(([key, value]) => {
+    config[key.toUpperCase()] = value;
+    deployment_config += `  ${key.toUpperCase()} = '${value}',\n`;
+  });
+
+  deployment_config += `}\n\ndeclare const deployment_config: { ${
+    Object.entries(config).reduce((out, [key, value]) => `${out ? `${out}, ` : ''}${key}: ${typeof value}`, '')
+  } };\nexport default deployment_config;\n`;
+
+  writeFileSync('main.d.ts', deployment_config, { encoding: 'utf-8' });
   writeFileSync('deployment.json', JSON.stringify(config, null, 2), { encoding: 'utf-8' });
 }
 
