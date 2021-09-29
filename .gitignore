@@ -2,3 +2,4 @@
 node_modules
 deployment.json
 main.d.ts
+.vscode/

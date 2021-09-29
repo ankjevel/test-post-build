@@ -1,6 +1,6 @@
 {
   "name": "test-post-build",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "test post build",
   "main": "main.js",
   "types": "main.d.ts",
